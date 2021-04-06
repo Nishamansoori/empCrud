@@ -1,0 +1,42 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="my-5 text-info">Employee List</h1>
+      <div>
+        <a href="#" class="btn btn-primary" [routerLink]="['/employees/add']">
+          <mat-icon aria-hidden="false" aria-label="Add Employee">add_circle</mat-icon>
+        </a>
+      </div>
+      <hr/>
+      <table class="table table-striped" *ngIf="(employees$ | async) as employees">
+        <thead>
+        <tr>
+          <th>Employee Name</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let employee of employees " >
+          <td>{{employee.employee_name}}</td>
+          <td>
+            <a href="#" class="btn btn-info" [routerLink]="['details', employee._id]">
+              <mat-icon aria-hidden="false" aria-label="Details">info</mat-icon>
+            </a>&nbsp;
+            <a href="#" class="btn btn-warning" [routerLink]="['edit', employee._id]">
+              <mat-icon aria-hidden="false" aria-label="Edit">edit</mat-icon>
+            </a>&nbsp;
+            <button class="btn btn-danger">
+              <mat-icon aria-hidden="false" aria-label="Delete" (click)="onDeleteEmployee(employee._id)">delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4 my-5">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+

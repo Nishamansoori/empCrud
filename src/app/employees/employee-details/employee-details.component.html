@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-8">
+    <h1 class="my-5 text-warning">Employee Details</h1>
+    <hr/>
+    <ul *ngIf="(employeeData$ | async) as employeeData">
+      <li>Id: {{employeeData._id}}</li>
+      <li>Name: {{employeeData.employee_name}}</li>
+      <li>Salary: {{employeeData.employee_salary}}</li>
+      <li>Age: {{employeeData.employee_age}}</li>
+      <li>Profile Picture: {{employeeData.profile_image}}</li>
+    </ul>
+  </div>
+</div>

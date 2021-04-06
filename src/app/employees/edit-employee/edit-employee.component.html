@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>Update Employee</h1>
+    <hr/>
+    <form  [formGroup]="employeeForm" (ngSubmit)="onUpdateEmployee()">
+      <div class="mb-3">
+        <label>Employee Name</label>
+        <input type="text" class="form-control" formControlName="empName" />
+        <span class="text-danger">{{checkValidation('empName')}}</span>
+      </div>
+      <div class="mb-3">
+        <label>Employee Salary</label>
+        <input type="number" class="form-control" formControlName="empSalary" min="0"/>
+        <span class="text-danger">{{checkValidation('empSalary')}}</span>
+      </div>
+      <div class="mb-3">
+        <label>Employee Age</label>
+        <input type="number" class="form-control" formControlName="empAge" min="0" max="150"/>
+        <span class="text-danger">{{checkValidation('empAge')}}</span>
+      </div>
+      <div class="mb-3">
+        <label>Employee Profile</label>
+        <input type="text" class="form-control" formControlName="empProfile"/>
+      </div>
+      <div class="my-3">
+        <button type="submit" class="btn btn-primary" [disabled]="!employeeForm.valid">Update</button>
+      </div>
+    </form>
+  </div>
+</div>
